@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aplicación AR con MindAR.js</title>
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
-</head>
-<body>
-  <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-    <a-assets>
-      <a-asset-item id="hatModel" src="hat__sombrero/scene.bin"></a-asset-item>
-      <a-asset-item id="maskModel" src="masquerade_cat_mask_1/scene.bin"></a-asset-item>
-    </a-assets>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
+      vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
 
-    <a-camera active="false" position="0 0 0"></a-camera>
-    
-    
-    <a-entity mindar-face-target="anchorIndex: 10">
-      <a-gltf-model rotation="0 0 0" position="0 0.1 -0.5" scale="6 6 4" src="#hatModel" visible="true"></a-gltf-model>
-    </a-entity>
-    
-   
-    <a-entity mindar-face-target="anchorIndex: 9">
-      <a-gltf-model rotation="0 0 0" position="0 -0.1 -0.5" scale="5 5 5" src="#maskModel" visible="true"></a-gltf-model>
-    </a-entity>
-  </a-scene>
-</body>
+      <a-assets>
+        <!-- Modelos alojados en línea -->
+        <a-asset-item id="hatModel" src="https://cdn.glitch.global/99a8e7c5-303f-4aaf-a6b7-5d6c42dc0c3f/sombrero.glb"></a-asset-item>
+        <a-asset-item id="maskModel" src="https://cdn.glitch.global/99a8e7c5-303f-4aaf-a6b7-5d6c42dc0c3f/mascara.glb"></a-asset-item>
+      </a-assets>
+
+      <a-camera active="false" position="0 0 0"></a-camera>
+
+      <!-- Sombrero en la cabeza -->
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-gltf-model rotation="0 0 0" position="0 0.3 -0.3" scale="6 6 6" src="#hatModel" visible="true"></a-gltf-model>
+      </a-entity>
+
+      <!-- Máscara en la cara -->
+      <a-entity mindar-face-target="anchorIndex: 6">
+        <a-gltf-model rotation="0 0 0" position="0 -0.2 -0.5" scale="5 5 5" src="#maskModel" visible="true"></a-gltf-model>
+      </a-entity>
+
+    </a-scene>
+  </body>
 </html>
