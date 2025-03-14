@@ -1,0 +1,11 @@
+Model Information:
+* title:	Masquerade Cat Mask 1
+* source:	https://sketchfab.com/3d-models/masquerade-cat-mask-1-9bb9a9af18474e03876aeab5096e1476
+* author:	David Wigforss (https://sketchfab.com/dwigfor)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Masquerade Cat Mask 1" (https://sketchfab.com/3d-models/masquerade-cat-mask-1-9bb9a9af18474e03876aeab5096e1476) by David Wigforss (https://sketchfab.com/dwigfor) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
