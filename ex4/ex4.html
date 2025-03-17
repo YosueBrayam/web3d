@@ -5,27 +5,17 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" 
-      vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-
+    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <!-- Modelos alojados en línea -->
-        <a-asset-item id="hatModel" src="https://cdn.glitch.global/99a8e7c5-303f-4aaf-a6b7-5d6c42dc0c3f/sombrero.glb"></a-asset-item>
-        <a-asset-item id="maskModel" src="https://cdn.glitch.global/99a8e7c5-303f-4aaf-a6b7-5d6c42dc0c3f/mascara.glb"></a-asset-item>
-      </a-assets>
+        <a-asset-item id="mask" src="dallas_mask__payday_2/scene.gltf"></a-asset-item>
+    </a-assets>
+
 
       <a-camera active="false" position="0 0 0"></a-camera>
-
-      <!-- Sombrero en la cabeza -->
       <a-entity mindar-face-target="anchorIndex: 10">
-        <a-gltf-model rotation="0 0 0" position="0 0.3 -0.3" scale="6 6 6" src="#hatModel" visible="true"></a-gltf-model>
+        <a-gltf-model rotation="0 -0 0" position="0 -1 -0.3" scale="10 10 10" src="#mask" visible="true"></a-gltf-model>
       </a-entity>
-
-      <!-- Máscara en la cara -->
-      <a-entity mindar-face-target="anchorIndex: 6">
-        <a-gltf-model rotation="0 0 0" position="0 -0.2 -0.5" scale="5 5 5" src="#maskModel" visible="true"></a-gltf-model>
-      </a-entity>
-
     </a-scene>
   </body>
-</html>
+</html> 4
+
