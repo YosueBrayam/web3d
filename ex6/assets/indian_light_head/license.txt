@@ -1,0 +1,11 @@
+Model Information:
+* title:	Indian Light Head
+* source:	https://sketchfab.com/3d-models/indian-light-head-6980627b0da84a8890a37ed3b3b96b0d
+* author:	Sirenlight 2 (https://sketchfab.com/Garrys-Mod)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Indian Light Head" (https://sketchfab.com/3d-models/indian-light-head-6980627b0da84a8890a37ed3b3b96b0d) by Sirenlight 2 (https://sketchfab.com/Garrys-Mod) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

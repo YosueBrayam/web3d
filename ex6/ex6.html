@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia VR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.0/dist/aframe-extras.min.js"></script>
+
+    <script>
+        AFRAME.registerComponent("mylink", {
+            schema: { href: { type: "string", default: "" } },
+            init: function() {
+                this.el.addEventListener("click", () => {
+                    window.location.href = this.data.href;
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <a-scene cursor="rayOrigin: mouse">
+        <a-assets>
+            <img id="imgSortida" src="assets/entragroc.png">
+            <img id="imgCasa" src="assets/casamaldita.jpg">
+            <a-asset-item id="dracula" src="assets/indian_light_head/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        
+        <a-entity camera look-controls wasd-controls="false">
+            <a-entity cursor="fuse: true; fuseTimeout: 2000"
+                      position="0 0 -1"
+                      geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                      material="color: red; shader: flat"
+                      animation="property: components.material.material.color;
+                                 type: color;
+                                 to: white;
+                                 dur: 1000;
+                                 dir: alternate;
+                                 loop: true">
+            </a-entity>
+        </a-entity>
+
+       
+        <a-sky src="#imgCasa"></a-sky>
+
+        <!-- Modelo 3D de Drácula con animación de movimiento acercándose poco a poco -->
+        <a-entity gltf-model="#dracula"
+                  position="18.235 -0.415 -1.161"
+                  rotation="0 -84.43 0"
+                  scale="1.443 1.433 1.733"
+                  animation-mixer="clip: mixamo.com"
+                  animation="property: position; to: 0 -0.415 0.100; dur: 6000; easing: linear; loop: true">
+        </a-entity>
+
+
+        <a-plane position="-5 0 3"
+                 src="#imgSortida"
+                 rotation="0 150 0"
+                 transparent="true"
+                 mylink="href: https://yosuebrayam.github.io/web3d/;">
+        </a-plane>
+    </a-scene>
+</body>
+</html>
