@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 AM a l'Institut Castellet</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?dark,school') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10vh;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 3px 3px 10px red;
+        }
+        .btn-start {
+            background: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn-start:hover {
+            background: darkred;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲💀 3 AM a l'Institut Castellet 💀🎲</h1>
+        <p>Ets atrapat a l'institut en plena nit. Els professors són part d'un ritual diabòlic i si t'atrapen, ningú sabrà més de tu...</p>
+        <p>Respon la primera pregunta per poder començar...</p>
+        <button class="btn-start" onclick="startGame()">Comença el Joc</button>
+    </div>
+    
+    <script>
+        function startGame() {
+            let resposta = prompt("Com es pot unir un client al domini?");
+            if (resposta && resposta.toLowerCase().includes("domini")) {
+                window.location.href = "mon1.html";
+            } else {
+                alert("Resposta incorrecta! Intenta-ho de nou...");
+            }
+        }
+    </script>
+</body>
+</html>
