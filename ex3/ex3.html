@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>ex3</title>
+    <!-- Import A-Frame -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- Import MindAR -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
+    <!-- Import A-Frame Extras -->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+        <a-asset-item id="avatarModel1" src="personatge1.glb"></a-asset-item>
+        <a-asset-item id="avatarModel2" src="personatge2.glb"></a-asset-item>
+        <a-asset-item id="avatarModel3" src="personatge3.glb"></a-asset-item>
+        <img id="wally" src="wally.png" />
+      </a-assets> 
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model src="#avatarModel1"
+            scale="0.005 0.005 0.005"
+            position="0 0 0"
+            rotation="90 0 0"
+            animation-mixer ="clip: low-poly_truck_car_drifter">
+        </a-gltf-model>          
+        </a-entity>      
+        <a-entity mindar-image-target="targetIndex: 1">
+            <a-gltf-model src="#avatarModel2"
+                scale="0.005 0.005 0.005"
+                position="0 0 0"
+                rotation="90 0 0"
+                animation-mixer ="clip: animated_spider">
+            </a-gltf-model>  
+        </a-entity>        
+        <a-entity mindar-image-target="targetIndex: 2">
+          <a-plane src="#wally" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+        </a-entity>
+        <a-entity mindar-image-target="targetIndex: 3">
+          <a-gltf-model src="#avatarModel3"
+              scale="0.005 0.005 0.005"
+              position="0 0 0"
+              rotation="90 0 0"
+              animation-mixer ="clip: stylized_ww1_plane">
+          </a-gltf-model>  
+      </a-entity>        
+    </a-scene>
+  </body>
+</html>
