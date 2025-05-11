@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhorabona!</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      text-align: center;
+      font-size: 3em;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorShift 5s infinite linear;
+    }
+
+    @keyframes colorShift {
+      0% { background-position: 0%;}
+      100% { background-position: 100%;}
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enhorabona, has escapat dels professors sectaris</h1>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    const fireworks = [];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function Firework() {
+      this.x = random(0, W);
+      this.y = H;
+      this.targetY = random(100, H / 2);
+      this.speed = random(4, 7);
+      this.exploded = false;
+      this.particles = [];
+
+      this.update = function () {
+        if (!this.exploded) {
+          this.y -= this.speed;
+          if (this.y <= this.targetY) {
+            this.exploded = true;
+            for (let i = 0; i < 50; i++) {
+              this.particles.push(new Particle(this.x, this.y));
+            }
+          }
+        } else {
+          this.particles.forEach(p => p.update());
+        }
+      };
+
+      this.draw = function () {
+        if (!this.exploded) {
+          ctx.fillStyle = "white";
+          ctx.fillRect(this.x, this.y, 2, 10);
+        } else {
+          this.particles.forEach(p => p.draw());
+        }
+      };
+    }
+
+    function Particle(x, y) {
+      this.x = x;
+      this.y = y;
+      this.speed = random(1, 5);
+      this.angle = random(0, Math.PI * 2);
+      this.radius = 2;
+      this.life = 100;
+
+      this.update = function () {
+        this.x += this.speed * Math.cos(this.angle);
+        this.y += this.speed * Math.sin(this.angle);
+        this.life--;
+      };
+
+      this.draw = function () {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        ctx.fill();
+      };
+    }
+
+    function animate() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.fillRect(0, 0, W, H);
+
+      if (Math.random() < 0.05) {
+        fireworks.push(new Firework());
+      }
+
+      fireworks.forEach((f, i) => {
+        f.update();
+        f.draw();
+        if (f.exploded && f.particles.every(p => p.life <= 0)) {
+          fireworks.splice(i, 1);
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+    });
+  </script>
+</body>
+</html>

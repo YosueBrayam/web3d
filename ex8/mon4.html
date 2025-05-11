@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vestíbul - Enigma HTTP</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://castelletm12b.cat/build/assets/question.js" defer></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <!-- Imagen panorámica -->
+        <img id="vestibul360" src="assets/26.JPG" crossorigin="anonymous" />
+
+        <!-- Models 3D -->
+        <a-asset-item id="albert" src="assets/npc.glb"></a-asset-item>
+        <a-asset-item id="papers" src="assets/papers__envelopes.glb"></a-asset-item>
+        <a-asset-item id="cara" src="assets/egg_face__terror.glb"></a-asset-item>   
+        <a-asset-item id="cara1" src="assets/egg_face__terror.glb"></a-asset-item>      
+        <a-asset-item id="cara2" src="assets/egg_face__terror.glb"></a-asset-item>     
+        <a-asset-item id="cara3" src="assets/egg_face__terror.glb"></a-asset-item>   
+       
+      </a-assets>
+
+      <!-- Imagen panorámica como fondo -->
+      <a-sky src="#vestibul360" rotation="0 -90 0"></a-sky>
+
+      <!-- Personajes y objectes -->
+      <a-entity gltf-model="#albert" position="-3.236 -2.447 -3.000" scale="-0.020 0.020 0.050" rotation="0 28.740 0"></a-entity>
+      <a-entity gltf-model="#papers" position="-1 0 -2.5" scale="1 1 1"></a-entity>
+      <a-entity gltf-model="#cara" position="4.000 1.242 -1.086" scale="1 1 1" rotation="0 100.000 0"></a-entity>
+      <a-entity gltf-model="#cara1" position="4.000 1.242 2.524 " scale="1 1 1" rotation="0 55.250 0"></a-entity>
+      <a-entity gltf-model="#cara2" position="-0.185 1.242 -3.633" scale="1 1 1" rotation="0 180.000 0"></a-entity>
+      <a-entity gltf-model="#cara3" position="-0.019 1.242 4.953" scale="1 1 1" rotation="0.000 3.130 0.000"></a-entity>
+    
+
+       <!-- esto es el plano -->
+      <a-plane 
+        question="98" 
+        position="0 2 -4" 
+        rotation="0 0 0" 
+        width="4" 
+        height="2" 
+        color="#222">
+      </a-plane>
+
+      <!-- Càmera i cursor -->
+      <a-camera position="0 1.6 0">
+        <a-cursor></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>

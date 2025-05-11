@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>room3</title>
+   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+   <script src="https://castelletm12b.cat/build/assets/question.js" defer></script>
+ </head>
+ <body>
+    <a-scene cursor= "rayOrigin: mouse">
+   <a-assets>
+     <img id="aulainformatica" src="assets/aulainfor.JPG" >
+     <img id="porta" src="/ex8/assets/door.PNG">
+     <audio id="song" src="assets/mindhunter.mp3"></audio>
+     <a-asset-item id="projector" src="assets/video_projector/scene.gltf"></a-asset-item>
+     <a-asset-item id="amagall" src="assets/door/scene.gltf"></a-asset-item>
+     <a-entity camera look-controls wasd-controls="false">
+         <a-entity cursor="fuse: true; fuseTimeout: 2000"
+               position="0 0 -1"
+               geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+               material="color: red; shader: flat"
+               animation="property: components.material.material.color;
+                     type: color;
+                     to: white;
+                     dur: 1000;
+                     dir: alternate;
+                     loop: true">
+         </a-entity>
+        </a-entity>    
+   </a-assets>  
+     <a-sky src="#aulainformatica"></a-sky>
+     <a-sound src="#song" autoplay="true" loop="true" volume="0.5"></a-sound>
+      <a-entity question="96" gltf-model="#projector" position="-5 -3 -10" scale="0.05 0.05 0.05"></a-entity>
+      <a-entity question="97" gltf-model="#amagall" position="-370 30 -250" rotation="0 90 0" scale="0.7 0.7 0.7"></a-entity>
+      <a-plane question="95" scale="10 24 10" position="15 -1 30" rotation="0 -180 0" src="#porta" transparent="true" mylink="href: mon4.html ;"></a-plane>
+   </a-scene>
+ </body>
+</html>

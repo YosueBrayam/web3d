@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>room1</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://castelletm12b.cat/build/assets/question.js" defer></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse">
+            <a-assets>
+            <img id="imgaltremon" src="assets/door.PNG">   
+            <audio id="song" src="assets/mindhunter.mp3"></audio>
+            <a-asset-item id="classroom" src="assets/classroom/scene.gltf"></a-asset-item>
+            <a-asset-item id="armari" src="assets/locker.glb"></a-asset-item>
+            <a-asset-item id="martell" src="assets/hammer/scene.gltf"></a-asset-item>
+            <a-asset-item id="clau" src="assets/key.glb"></a-asset-item>
+            </a-assets>
+            <a-sound src="#song" autoplay="true" loop="true" volume="2"></a-sound>
+            <a-entity gltf-model="#classroom" position="0 -3.5 -5" scale="0.1 0.1 0.1"></a-entity>
+            <a-entity question="92" gltf-model="#armari" position="-35 -3.5 -5.2" scale="8 8 8"></a-entity>
+            <a-entity question="91" gltf-model="#martell"  position="9 6 -11" scale="10 10 10" rotation="0 90 90"></a-entity>
+            <a-entity question="93" gltf-model="#clau" position="-20 7 -50" scale="0.002 0.002 0.002" rotation="0 0 0"></a-entity>
+            <a-plane question="94" position="-39 7 28" rotation="0 -265 0" scale="10 24 10" src="#imgaltremon" transparent="true" mylink="href: mon2.html ;"></a-plane>
+            <a-camera position="0 10 5"></a-camera>
+    </a-scene> 
+  </body>
+</html>
